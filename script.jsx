@@ -17,10 +17,10 @@ var Result = React.createClass({
     }
 });
 
-var Products = React.createClass({
+var ProductsBlock = React.createClass({
     getInitialState: function() {
         return {
-            productId: 1
+            productId: null
         };
     },
     productClick: function(id) {
@@ -33,7 +33,7 @@ var Products = React.createClass({
                 <Product ProductClick={this.productClick} id={2} />
                 <Product ProductClick={this.productClick} id={3} />
                 <Product ProductClick={this.productClick} id={4} />
-                <Result ProductId={this.state.productId} />
+                <Result ProductId={this.state.productId} disable={false} />
             </section>
 
 
@@ -41,4 +41,4 @@ var Products = React.createClass({
     }
 })
 
-React.render(<Products />, document.getElementById("main"));
+React.render(<ProductsBlock />, document.getElementById("main"));
