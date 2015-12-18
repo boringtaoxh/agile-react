@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="root"></div>
+
+<script src="https://fb.me/react-0.13.3.js"></script>
+<script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+
+<script type="text/jsx">
+    var Product = React.createClass({
+        render: function() {
+            return (
+                    <h3>Product {this.props.id}</h3>
+            )
+        }
+    });
+
+    var Products = React.createClass({
+        getInitialState: function() {
+            return {listNumber: 20};
+        },
+        render: function() {
+            return (
+               <section>
+                   <Product id={1} />
+                   <Product id={2} />
+                   <Product id={3} />
+                   <Product id={4} />
+               </section>
+            )
+        }
+    })
+
+    React.render(<Products />, document.getElementById("root"));
+</script>
+
+</body>
+
+</html>
