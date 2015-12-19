@@ -13,7 +13,7 @@ var Product = React.createClass({
     },
     render: function() {
         return (
-            <div onClick={this.ProductClick}>
+            <div className="product" onClick={this.ProductClick}>
                 <img src={this.state.avatar_url} width="80" />
                 <h3>{this.state.name}</h3>
             </div>
@@ -23,8 +23,10 @@ var Product = React.createClass({
 
 var Result = React.createClass({
     render: function() {
+        var display;
+        display = (this.props.product === null)? "hide": "show";
         return (
-            <div>Product {this.props.product}</div>
+            <div className={display}>Product {this.props.product}</div>
         )
     }
 });
@@ -32,8 +34,8 @@ var Result = React.createClass({
 var ProductsBlock = React.createClass({
     getInitialState: function() {
         return {
-            products: ['boringtao', 'boringtaoxh'],
-            product: 'undefined'
+            products: ["boringtao", "boringtaoxh"],
+            product: null
         };
     },
     productClick: function(id) {
