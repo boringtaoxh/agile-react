@@ -24,7 +24,7 @@ var Product = React.createClass({
 var Result = React.createClass({
     render: function() {
         return (
-            <div>Product {this.props.ProductId}</div>
+            <div>Product {this.props.product}</div>
         )
     }
 });
@@ -32,17 +32,17 @@ var Result = React.createClass({
 var ProductsBlock = React.createClass({
     getInitialState: function() {
         return {
-            productIds: ['boringtao', 'boringtaoxh'],
-            productId: 'undefined'
+            products: ['boringtao', 'boringtaoxh'],
+            product: 'undefined'
         };
     },
     productClick: function(id) {
-        this.setState({ productId: id });
+        this.setState({ product: id });
     },
     render: function() {
-        var results = this.state.productIds;
+        var results = this.state.products;
         var products = [];
-        for (var i=0; i <= 1; i++) {
+        for (var i=0; i < results.length; i++) {
             products.push(
                 <Product ProductClick={this.productClick} key={results[i]} id={results[i]} />
             );
@@ -50,7 +50,7 @@ var ProductsBlock = React.createClass({
         return (
             <section>
                 {products}
-                <Result ProductId={this.state.productId} disable={false} />
+                <Result product={this.state.product} disable={false} />
             </section>
 
 
