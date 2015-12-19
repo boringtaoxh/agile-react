@@ -2,10 +2,22 @@ var Product = React.createClass({
     ProductClick: function() {
         this.props.ProductClick(this.props.id);
     },
+    getInitialState: function() {
+        return {};
+    },
+    componentDidMount: function() {
+        var component = this;
+        $.get("https://api.github.com/users/boringtaoxh", function(data) {
+            component.setState(data);
+        });
+    },
     render: function() {
         return (
-            <button onClick={this.ProductClick}>Product {this.props.id}</button>
-        )
+            <div onClick={this.ProductClick}>
+                <img src={this.state.avatar_url} width="80" />
+                <h3>{this.props.id} {this.state.name}</h3>
+            </div>
+        );
     }
 });
 
