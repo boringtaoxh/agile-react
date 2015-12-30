@@ -1,5 +1,5 @@
 $ = jQuery = require('jquery');
 
-var App = console.log('Hello world!');
+var App = console.log('Hello world!!');
 
 module.exports = App;

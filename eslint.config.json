@@ -1,0 +1,14 @@
+{
+  "ecmaFeatures": {
+    "jsx": true
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "jquery": true
+  },
+  "rules": {
+    "quotes": [1, "single"],
+    "semi": [1, "always"]
+  }
+}
