@@ -1,0 +1,16 @@
+{
+  "name": "agile",
+  "version": "1.0.0",
+  "description": "agile helper built with react.js & firebase ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "boringtao",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-connect": "^2.3.1",
+    "gulp-open": "^1.0.0"
+  }
+}
