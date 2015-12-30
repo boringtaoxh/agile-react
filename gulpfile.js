@@ -18,7 +18,7 @@ gulp.task('connect', function() {
         root: ['public'],
         port: config.port,
         base: config.devBaseUrl,
-        liveReload: true
+        livereload: true
     });
 });
 
@@ -33,4 +33,8 @@ gulp.task('open', ['connect'], function(){
        .pipe(open({url: config.devBaseUrl + ':' + config.port + '/'}));
 });
 
-gulp.task('default', ['html', 'open']);
+gulp.task('watch', function(){
+    gulp.watch(config.paths.html, ['html']);
+});
+
+gulp.task('default', ['html', 'open', 'watch']);
