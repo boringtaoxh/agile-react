@@ -5,13 +5,19 @@ var gulp = require('gulp'),
     open = require('gulp-open'),
     browserify = require('browserify'),
     reactify = require('reactify'),
-    source = require('vinyl-source-stream');
+    source = require('vinyl-source-stream'),
+    concat = require('gulp-concat');
 
 var config = {
     port: 9005,
     devBaseUrl: 'http://localhost',
     paths: {
         html: './build/**/*.html',
+        js: './build/**/*.js',
+        css: [
+            'node_modules/bootstrap/dist/css/bootstrap.min.css',
+            'node_modules/bootstrap/dist/css/bootstrap-theme.min.css'
+        ],
         module: './build/module.js',
         dist: './public'
     }
@@ -32,6 +38,13 @@ gulp.task('html', function(){
         .pipe(connect.reload());
 });
 
+gulp.task('css', function(){
+    gulp.src(config.paths.css)
+        .pipe(concat('style.css'))
+        .pipe(gulp.dest(config.paths.dist + '/css'))
+        .pipe(connect.reload());
+});
+
 gulp.task('module', function() {
     browserify(config.paths.module)
         .transform(reactify)
@@ -49,7 +62,8 @@ gulp.task('open', ['connect'], function(){
 
 gulp.task('watch', function(){
     gulp.watch(config.paths.html, ['html']);
+    gulp.watch(config.paths.css, ['css']);
     gulp.watch(config.paths.module, ['module']);
 });
 
-gulp.task('default', ['html', 'module', 'open', 'watch']);
+gulp.task('default', ['html', 'css', 'module', 'open', 'watch']);
