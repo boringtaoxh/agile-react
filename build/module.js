@@ -1,5 +1,6 @@
 $ = jQuery = require('jquery');
 
-var App = console.log('Hello world!!');
+var React = require('react');
+var Index = require('./components/index');
 
-module.exports = App;
+React.render(<Index />, document.getElementById('main'));
