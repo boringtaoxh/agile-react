@@ -19,7 +19,7 @@ var config = {
             'node_modules/bootstrap/dist/css/bootstrap.min.css',
             'node_modules/bootstrap/dist/css/bootstrap-theme.min.css'
         ],
-        moduleJs: './build/module.js',
+        componentJs: './build/component.js',
         dist: './public'
     }
 };
@@ -47,7 +47,7 @@ gulp.task('css', function(){
 });
 
 gulp.task('js', function() {
-    browserify(config.paths.moduleJs)
+    browserify(config.paths.componentJs)
         .transform(reactify)
         .bundle()
         .on('error', console.error.bind(console))
