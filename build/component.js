@@ -5,6 +5,7 @@ var ReactDom = require('react-dom');
 var Header = require('./components/header');
 var Index = require('./components/index');
 var About = require('./components/about');
+var List = require('./components/list');
 
 var App = React.createClass({
     render: function() {
@@ -12,6 +13,7 @@ var App = React.createClass({
 
         switch (this.props.route) {
             case 'about': Child = About; break;
+            case 'list': Child = List; break;
             default: Child = Index;
         }
 
