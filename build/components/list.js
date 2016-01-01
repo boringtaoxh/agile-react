@@ -2,6 +2,7 @@
 
 var React = require('react');
 var Firebase = require('firebase');
+var ReactFireMixin = require('reactfire');
 var rootUrl = 'https://alt-data.firebaseio.com/';
 
 var ItemList = React.createClass({
